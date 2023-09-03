@@ -1,15 +1,20 @@
 import pyautogui
 from python_imagesearch.imagesearch import imagesearch_loop, imagesearch
 import time
+import yaml
 
+# Settings
 pyautogui.FAILSAFE = False
 TIMELAPSE = 1
+with open("resources/settings.yaml", "r") as yamlfile:
+    settings = yaml.safe_load(yamlfile)
 
-acceptButtonImg = './sample.png'
-acceptedButtonImg = './sample-accepted.png'
-championSelectionImg_flash = './flash-icon.png'
-championSelectionImg_emote = './emote-icon.png'
-playButtonImg = './play-button.png'
+# Images
+acceptButtonImg = f'./{settings["launcherSize"]}/queue-pop.png'
+acceptedButtonImg = f'./{settings["launcherSize"]}/queue-accepted.png'
+championSelectionImg_flash = f'./{settings["launcherSize"]}/flash-icon.png'
+championSelectionImg_emote = f'./{settings["launcherSize"]}/emote-icon.png'
+playButtonImg = f'./{settings["launcherSize"]}/play-button.png'
 
 def checkGameAvailableLoop():
     while True:
