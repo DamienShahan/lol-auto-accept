@@ -10,11 +10,11 @@ with open("resources/settings.yaml", "r") as yamlfile:
     settings = yaml.safe_load(yamlfile)
 
 # Images
-acceptButtonImg = f'./{settings["launcherSize"]}/queue-pop.png'
-acceptedButtonImg = f'./{settings["launcherSize"]}/queue-accepted.png'
-championSelectionImg_flash = f'./{settings["launcherSize"]}/flash-icon.png'
-championSelectionImg_emote = f'./{settings["launcherSize"]}/emote-icon.png'
-playButtonImg = f'./{settings["launcherSize"]}/play-button.png'
+acceptButtonImg = f'./resources/{settings["launcherSize"]}/queue-pop.png'
+acceptedButtonImg = f'./resources/{settings["launcherSize"]}/queue-accepted.png'
+championSelectionImg_flash = f'./resources/{settings["launcherSize"]}/flash-icon.png'
+championSelectionImg_emote = f'./resources/{settings["launcherSize"]}/emote-icon.png'
+playButtonImg = f'./resources/{settings["launcherSize"]}/play-button.png'
 
 def checkGameAvailableLoop():
     while True:
