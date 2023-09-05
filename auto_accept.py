@@ -18,14 +18,20 @@ playButtonImg = f'./resources/{settings["launcherSize"]}/play-button.png'
 
 def checkGameAvailableLoop():
     while True:
+        print("looking 6")
         pos = imagesearch(acceptButtonImg, 0.8)
+        pos = imagesearch(acceptButtonImg)
+        print(f"pos 0:{pos[0]}")
+        print(f"pos 1:{pos[1]}")
         if not pos[0] == -1:
-            pyautogui.click(pos[0], pos[1])
+            pyautogui.click(x=pos[0], y=pos[1])
             print("Game accepted!")
             break
         
         time.sleep(TIMELAPSE)
     
+pyautogui.moveTo(2835, 1091)
+pyautogui.position()
 
 def checkChampionSelection():
     flash = imagesearch(championSelectionImg_flash)
@@ -48,12 +54,14 @@ def checkGameCancelled():
 
 def main():
     run = True
-
+    print("looking 1")
     while run is True:
+        print("looking 2")
         checkGameAvailableLoop()
         time.sleep(TIMELAPSE)
 
         while True:
+            print("looking 3")
             cancelled = checkGameCancelled()
             if cancelled is True:
                 print("Game has been cancelled, waiting...")
